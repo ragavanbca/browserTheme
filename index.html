@@ -195,7 +195,7 @@
             currentDateTime.getSeconds(); // => 51
 
             var DateTime12HFormat = currentDateTime.toLocaleString([], { hour12: true});
-            var getTime = DateTime12HFormat.substring(20, 22);
+            var getTime = DateTime12HFormat.substring(21, 23);
             
             if(getTime == 'am'){
                 html += 'Good Morning';
@@ -204,6 +204,8 @@
                 html += 'Good Afternoon';
             }
             
+            console.log(getTime);
+            console.log(html);
             $('#greeting').text(html + ',')
             
         });
