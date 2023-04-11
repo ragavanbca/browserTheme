@@ -158,11 +158,11 @@
 
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="row p-3" style="justify-content: center;">
-                    <p class="flickerText">Ragavan bca &#128526</p>
+                    <p class="flickerText lineupAnimation">Ragavan bca &#128526</p>
                 </div>
 
                 <div class="row p-3" style="justify-content: center;">
-                    <div class="search">
+                    <div class="search lineupAnimation">
                         <i class="fa fa-search"></i>
                         <input type="text" id="userUrl" class="form-control" placeholder="Have a question? Ask Now">
                         <button class="btn btn-primary" style="right: 18px;" onclick="search()"><b>Search</b></button>
@@ -170,7 +170,7 @@
                 </div>
 
                 <div class="row p-4" style="justify-content: center;">
-                    <div class="card profileInfo">
+                    <div class="card profileInfo lineupAnimation">
                         <img src="images/classic-350-grey-front-2-3-angle-2-international.jpg" class="" alt="...">
                     </div>
                 </div>
@@ -187,34 +187,57 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            html ='';
+            html = '';
 
             var currentDateTime = new Date(); // for now
             currentDateTime.getHours(); // => 9
             currentDateTime.getMinutes(); // =>  30
             currentDateTime.getSeconds(); // => 51
 
-            var DateTime12HFormat = currentDateTime.toLocaleString([], { hour12: true});
-            var getTime = DateTime12HFormat.substring(21, 23);
-            
-            if(getTime == 'am'){
+            var DateTime12HFormat = currentDateTime.toLocaleString([], { hour12: true });
+            var getTime = DateTime12HFormat.slice(-2);
+
+            if (getTime == 'am') {
                 html += 'Good Morning';
             }
-            else if(getTime == 'pm'){
+            else if (getTime == 'pm') {
                 html += 'Good Afternoon';
             }
-            
-            console.log(getTime);
-            console.log(html);
+
+            // console.log("Current Time :", DateTime12HFormat);
+            // console.log("slice last two string :", getTime);
+            // console.log("result :", html);
+
             $('#greeting').text(html + ',')
-            
+
         });
 
         function search() {
+            var value = $('#userUrl').val();
             var url = 'http://';
-            url += $('#userUrl').val();
 
-            window.location.href = url;
+            var matchOriginType1 = value.match('http://');
+            var matchOriginType2 = value.match('https://');
+
+            if (value) {
+                if (matchOriginType1 && matchOriginType1 != null) {
+                    window.location.href = value;
+                }
+
+                if(matchOriginType2 && matchOriginType2 != null){
+                    window.location.href = value;
+                }
+            }
+
+            if(matchOriginType1 == null && matchOriginType2 == null){
+                url += value;
+                window.location.href = url;
+            }
+
+            console.log("value", value);
+            console.log("matchOriginType1", matchOriginType1);
+            console.log("matchOriginType2", matchOriginType2);
+            
         };
 
     </script>
