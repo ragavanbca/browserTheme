@@ -1,5 +1,4 @@
 # browserTheme
-Browser theme template
 Using languages
   - HTML
   - CSS
