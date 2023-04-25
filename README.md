@@ -4,6 +4,7 @@ Using languages
   - HTML
   - CSS
   - JS
+  - Bootstrap 5
 
 How setup
 
