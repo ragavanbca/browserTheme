@@ -159,3 +159,53 @@ pre {
         transform: translateY(0%);
     }
 }
+
+/* Add these responsive styles */
+@media (max-width: 768px) {
+    .card1 h1 {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+    
+    .search {
+        width: 100% !important;
+        margin: 10px 0;
+    }
+    
+    .profileInfo img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .card.cardbgcolor {
+        margin-bottom: 15px;
+    }
+    
+    .footer {
+        position: relative !important;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .card1 h1 {
+        font-size: 1.2rem;
+    }
+    
+    .card-body {
+        padding: 0.75rem;
+    }
+    
+    .card-body img {
+        width: 40px;
+        height: 35px;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+    }
+    
+    pre {
+        font-size: 0.8rem;
+    }
+}
